@@ -1,16 +1,9 @@
 package com.eden.machi
 
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,11 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
-        val mapsFragment: MapsFragment = MapsFragment()
-        val profileFragment: ProfileFragment = ProfileFragment()
+        val mapsFragment = MapsFragment()
+        val profileFragment = ProfileFragment()
 
         fab.setOnClickListener {
             TimePickerFragment().show(supportFragmentManager, "timePicker")
