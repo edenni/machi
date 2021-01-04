@@ -5,16 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
-
-
+    tools:context=".view.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
-        android:name="com.eden.machi.MapsFragment"
+        android:name="com.eden.machi.view.MapsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"

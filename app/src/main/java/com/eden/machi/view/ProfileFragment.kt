@@ -1,11 +1,11 @@
-package com.eden.machi
+package com.eden.machi.view
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.eden.machi.R
 
 
 class ProfileFragment : Fragment() {

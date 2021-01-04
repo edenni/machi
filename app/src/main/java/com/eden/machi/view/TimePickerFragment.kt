@@ -1,4 +1,4 @@
-package com.eden.machi
+package com.eden.machi.view
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.NumberPicker
 import androidx.fragment.app.DialogFragment
+import com.eden.machi.R
 import kotlinx.android.synthetic.main.fragment_time_picker.*
 
 

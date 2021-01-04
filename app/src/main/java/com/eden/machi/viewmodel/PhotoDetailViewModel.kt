@@ -1,4 +1,4 @@
-package com.eden.machi
+package com.eden.machi.viewmodel
 
 import androidx.lifecycle.ViewModel
 

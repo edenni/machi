@@ -10,8 +10,8 @@ import android.widget.TextView
 
 
 
-class GridAdapter(context: Context, layoutId: Int,
-                  imageList: List<Int>, members: List<String>) : BaseAdapter() {
+class PhotoGridAdapter(context: Context, layoutId: Int,
+                       imageList: List<Int>, members: List<String>) : BaseAdapter() {
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
     }

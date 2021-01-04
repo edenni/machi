@@ -1,8 +1,9 @@
-package com.eden.machi
+package com.eden.machi.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.eden.machi.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -38,6 +39,4 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, fragment)
             .commit()
     }
-
-
 }

@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/overviewFragment">
+
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.eden.machi.view.PhotoGridFragment"
+        android:label="photo_grid_fragment"
+        tools:layout="@layout/photo_grid_fragment">
+        <action
+            android:id="@+id/action_showDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.eden.machi.view.PhotoDetailFragment"
+        android:label="photo_detail.fragment"
+        tools:layout="@layout/photo_detail_fragment"></fragment>
 
 </navigation>
