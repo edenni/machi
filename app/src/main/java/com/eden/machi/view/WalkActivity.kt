@@ -16,16 +16,15 @@ class WalkActivity : AppCompatActivity() {
         setContentView(R.layout.activity_walk)
 
         // make status bar transparent
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        }
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         val hour: Int = intent.getIntExtra(EXTRA_DATA_HOUR, 0)
         val minute: Int = intent.getIntExtra(EXTRA_DATA_MINUTE, 0)
         Log.d(this.javaClass.name, "%d:%d".format(hour, minute))
 
         // TODO request ... (loading view)
+
 
     }
 
