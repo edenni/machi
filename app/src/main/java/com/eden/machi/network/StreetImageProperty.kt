@@ -1,15 +1,12 @@
 package com.eden.machi.network
 
-import com.squareup.moshi.Json
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-/**
- * This data class defines a Mars property which includes an ID, the image URL, the type (sale
- * or rental) and the price (monthly if it's a rental).
- * The property names of this data class are used by Moshi to match the names of values in JSON.
- */
+@Parcelize
 data class StreetImageProperty(
+    val id : Int,
     val lon: Float,
     val lat: Float,
-    // used to map img_src from the JSON to imgSrcUrl in our class
-    @Json(name = "img_src") val imgSrcUrl: String,
-    val filter: String)
+    val img_src: String,
+    val filter: String) : Parcelable

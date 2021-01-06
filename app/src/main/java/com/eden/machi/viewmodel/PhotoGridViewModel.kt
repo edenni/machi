@@ -1,5 +1,6 @@
 package com.eden.machi.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +9,7 @@ import com.eden.machi.network.StreetImageApi
 import com.eden.machi.network.StreetImageProperty
 import kotlinx.coroutines.launch
 
-enum class StreetImageApiStatus { LOADING, ERROR, DONE}
+enum class StreetImageApiStatus { LOADING, ERROR, DONE }
 
 class PhotoGridViewModel : ViewModel() {
     private val _status = MutableLiveData<StreetImageApiStatus>()
@@ -19,18 +20,34 @@ class PhotoGridViewModel : ViewModel() {
     val properties: LiveData<List<StreetImageProperty>>
         get() = _properties
 
+    private val _navigateToSelectedProperty = MutableLiveData<StreetImageProperty>()
+    val navigateToSelectedProperty: LiveData<StreetImageProperty>
+        get() = _navigateToSelectedProperty
 
-    public fun getImages(lon : Float, lat : Float) {
+    init {
+        getStreetImageProperties(1.0F,1.0F)
+    }
 
+    private fun getStreetImageProperties(lon: Float, lat: Float) {
         viewModelScope.launch {
             _status.value = StreetImageApiStatus.LOADING
-            try {
+            try {Log.d("hhhhh", "start parsing")
                 _properties.value = StreetImageApi.retrofitService.getImages(lon, lat)
+                Log.d("hhhhh", _properties.value!![0].img_src)
                 _status.value = StreetImageApiStatus.DONE
             } catch (e: Exception) {
+                Log.d("hhhhh", e.toString())
                 _status.value = StreetImageApiStatus.ERROR
                 _properties.value = ArrayList()
             }
         }
+    }
+
+    fun displayPropertyDetails(streetImageProperty: StreetImageProperty) {
+        _navigateToSelectedProperty.value = streetImageProperty
+    }
+
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
     }
 }

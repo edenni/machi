@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/overviewFragment">
+    app:startDestination="@id/gridFragment">
 
     <fragment
-        android:id="@+id/overviewFragment"
+        android:id="@+id/gridFragment"
         android:name="com.eden.machi.view.PhotoGridFragment"
         android:label="photo_grid_fragment"
-        tools:layout="@layout/photo_grid_fragment">
+        tools:layout="@layout/fragment_photo_grid">
         <action
             android:id="@+id/action_showDetail"
             app:destination="@id/detailFragment" />
@@ -19,7 +19,12 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.eden.machi.view.PhotoDetailFragment"
-        android:label="photo_detail.fragment"
-        tools:layout="@layout/photo_detail_fragment"></fragment>
+        android:label="photo_detail_fragment"
+        tools:layout="@layout/fragment_photo_detail">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.eden.machi.network.StreetImageProperty"
+            />
+    </fragment>
 
 </navigation>

@@ -2,34 +2,43 @@ package com.eden.machi.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.eden.machi.viewmodel.PhotoGridViewModel
-import com.eden.machi.R
+import com.eden.machi.adapter.PhotoGridAdapter
+import com.eden.machi.databinding.FragmentPhotoGridBinding
 
 class PhotoGridFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PhotoGridFragment()
+    private val viewModel: PhotoGridViewModel by lazy {
+        ViewModelProvider(this).get(PhotoGridViewModel::class.java)
     }
-
-    private lateinit var viewModel: PhotoGridViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        
-        val binding = FragmentPhoto.inflate(inflater)
-        return inflater.inflate(R.layout.photo_grid_fragment, container, false)
+        requireActivity().title = "List"
+        val binding = FragmentPhotoGridBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener {
+            viewModel.displayPropertyDetails(it)
+        })
+
+        viewModel.navigateToSelectedProperty.observe(this, Observer {
+            if (null != it) {
+                println(it)
+                this.findNavController().navigate(PhotoGridFragmentDirections.actionShowDetail(it))
+                viewModel.displayPropertyDetailsComplete()
+            }
+        })
+        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PhotoGridViewModel::class.java)
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
     }
-
 }

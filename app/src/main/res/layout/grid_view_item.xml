@@ -9,12 +9,12 @@
     </data>
 
     <ImageView
-        android:id="@+id/mars_image"
+        android:id="@+id/street_image"
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:padding="2dp"
-        app:imageUrl="@{property.imgSrcUrl}"
+        app:imageUrl="@{property.img_src}"
         tools:src="@tools:sample/backgrounds/scenic"/>
 </layout>

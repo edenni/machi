@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Query
 
 
-private const val BASE_URL = "https://localhost:8080/"
+private const val BASE_URL = "http://192.168.3.6:8000/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -21,7 +21,8 @@ private val retrofit = Retrofit.Builder()
 
 interface StreetImageApiService {
     @GET("streetimage")
-    suspend fun getImages(@Query("lon") lon : Float, @Query("lat") lat : Float): List<StreetImageProperty>
+    suspend fun getImages(@Query("lon") lon : Float,
+                          @Query("lat") lat : Float): List<StreetImageProperty>
 }
 
 object StreetImageApi {
