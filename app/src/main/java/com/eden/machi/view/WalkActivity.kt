@@ -32,8 +32,6 @@ class WalkActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId === android.R.id.home) {
-
-            Log.d("jjj", supportFragmentManager.fragments[0].toString())
             if (supportFragmentManager.fragments.javaClass == PhotoDetailFragment::class.java)
                 supportFragmentManager.popBackStack()
             else

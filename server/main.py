@@ -7,15 +7,11 @@ app = FastAPI()
 from street import base_url, key
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
 @app.get("/streetimage/")
-async def get_images(lon: float, lat: float):
+async def get_images(lat: float, lng: float):
     lat = 35.6690667
     lng = 139.5633213
+
     K = 20
     image_list = []
 

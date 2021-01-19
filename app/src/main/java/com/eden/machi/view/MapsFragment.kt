@@ -1,5 +1,8 @@
 package com.eden.machi.view
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Location
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
@@ -41,8 +44,10 @@ class MapsFragment : Fragment() {
         activity?.window?.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -56,6 +61,7 @@ class MapsFragment : Fragment() {
         activity?.window?.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

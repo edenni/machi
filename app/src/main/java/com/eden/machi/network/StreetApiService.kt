@@ -21,8 +21,8 @@ private val retrofit = Retrofit.Builder()
 
 interface StreetImageApiService {
     @GET("streetimage")
-    suspend fun getImages(@Query("lon") lon : Float,
-                          @Query("lat") lat : Float): List<StreetImageProperty>
+    suspend fun getImages(@Query("lat") lat : Float,
+                          @Query("lng") lng : Float): List<StreetImageProperty>
 }
 
 object StreetImageApi {

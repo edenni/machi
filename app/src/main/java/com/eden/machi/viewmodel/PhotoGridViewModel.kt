@@ -28,15 +28,13 @@ class PhotoGridViewModel : ViewModel() {
         getStreetImageProperties(1.0F,1.0F)
     }
 
-    private fun getStreetImageProperties(lon: Float, lat: Float) {
+    private fun getStreetImageProperties(lat: Float, lng: Float) {
         viewModelScope.launch {
             _status.value = StreetImageApiStatus.LOADING
-            try {Log.d("hhhhh", "start parsing")
-                _properties.value = StreetImageApi.retrofitService.getImages(lon, lat)
-                Log.d("hhhhh", _properties.value!![0].img_src)
+            try {
+                _properties.value = StreetImageApi.retrofitService.getImages(lat, lng)
                 _status.value = StreetImageApiStatus.DONE
             } catch (e: Exception) {
-                Log.d("hhhhh", e.toString())
                 _status.value = StreetImageApiStatus.ERROR
                 _properties.value = ArrayList()
             }
